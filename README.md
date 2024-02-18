@@ -8,6 +8,8 @@ is and how it works.
 What is a _network_?  Discuss what an IP address and associated netmask
 respresent in a network and why these are important.
 - How does one come from one network to another?
+  > A network is a collection of interconnected devices or nodes that can communicate with each other.
+  > An IP address, along with its associated netmask, identifies a device on a network and determines the range of IP addresses that device can communicate with. IP addresses are crucial for routing data packets across networks.
 
 ## Addresses
 
@@ -17,34 +19,48 @@ IP addresses can be designated either statically and dynamically.
 
 Why would you use _static IPs_, what do you think would be the point?
 Two things:
+  > Static IPs are used when a device needs a permanent IP address that doesn't change over time.
+
 - How is this controlled?
 - Where are they set / configured?
+  > They are controlled by manually assigning a specific IP address to a device and configuring it in the device's network settings.
+
 
 ### Dynamic IPs
 
 Explain what happens in situation a server/desktop/node is to have a dynamic IP. 
 - What happens?
+  > In a dynamic IP scenario, a server/desktop/node is assigned an IP address dynamically by a DHCP (Dynamic Host Configuration Protocol) server.
 - Who is responsible for what?
-- Discuss the provisioning...
+  > The DHCP server is responsible for leasing IP addresses to devices on the network, managing IP address allocation, and ensuring no conflicts occur.
+
 
 ## DNS
 
 DNS is used on a daily basis and actually constantly. 
 - For what and where?
+  > DNS (Domain Name System) translates domain names to IP addresses, allowing users to access websites using easy-to-remember names instead of numerical IP addresses.
 - Explain what happens when tcp connection is to be made to a server from a DNS
   point of view.
+  > When establishing a TCP connection to a server, the client queries a DNS server to resolve the domain name to an IP address before initiating the connection.
 
 ## Router/Firewall
 
 Whats does one do and how?
-- Not a detailed level, just the overview/concept.
+>Routers forward data packets between different networks, while firewalls regulate incoming and outgoing network traffic based on predefined security rules
 
 ## DNAT, SNAT, PAT & Port forwarding
 
 Explain these concepts and what purpose they fulfill.
 - Which of these are denoted in a _Dockerfile_ and how is this shown?
+  > - $DNAT$ (Destination Network Address Translation) and SNAT (Source Network Address Translation) are techniques used in NAT (Network Address Translation) to modify IP addresses and port numbers in packet headers for routing purposes.
+  > - $PAT$ (Port Address Translation) is a type of NAT where multiple private IP addresses are mapped to a single public IP address using different port numbers.
+  > - $Port forwarding$ redirects traffic from a specific port on the router's public IP address to a specific port on an internal network device.
 - This functionality is important why?
-
+  >- DNAT helps direct incoming messages to the right place inside your network
+  >- SNAT helps direct outgoing messages to the right place outside your network
+  >- PAT allows multiple devices to share a single public IP address
+   
 # Training exercise 2 - Composing
 
 ## Preassumption
